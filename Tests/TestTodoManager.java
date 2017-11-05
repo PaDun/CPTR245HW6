@@ -29,4 +29,9 @@ public class TestTodoManager {
         assertEquals(new ArrayList<>(Arrays.asList("Lunch Date : September 12", "Lunch meeting : August 22")),
                 todo.filter("Bob", "Lunch"));
     }
+
+    @Test
+    public void filterWithoutKeyword() {
+        assertEquals(new ArrayList<>(Arrays.asList()), todo.filter("Jill", "September"));
+    }
 }
