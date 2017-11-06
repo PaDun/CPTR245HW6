@@ -25,4 +25,28 @@ public class TodoManager {
 
         return output;
     }
+
+    public Boolean userExists(String user) {
+        try {
+            this.todoService.getUser(user);
+            return true;
+        }
+        catch (IllegalArgumentException e) {
+            return false;
+        }
+    }
+
+    public ArrayList<String> getUsers(String[] users) {
+        ArrayList<String> output = new ArrayList<>();
+
+        for (String user: users) {
+            try {
+                output.add(todoService.getUser(user));
+            }
+            catch(IllegalArgumentException e) {
+            }
+        }
+
+        return output;
+    }
 }
